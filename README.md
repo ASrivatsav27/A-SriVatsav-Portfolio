@@ -4,6 +4,10 @@ A personal portfolio site for my software development work, projects, skills, ex
 
 **Live site:** [adapasrivatsav.in](https://adapasrivatsav.in)
 
+## Deployment
+
+The production site is deployed on Vercel from the `main` branch. The custom domain `adapasrivatsav.in` is registered with GoDaddy and connected to the Vercel project.
+
 ## Features
 
 - Responsive portfolio with light and dark themes
