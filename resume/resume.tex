@@ -1,0 +1,155 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[top=0.2in, bottom=0.2in, left=0.5in, right=0.5in]{geometry}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{microtype}
+\usepackage{tabularx}
+\usepackage{array}
+
+\definecolor{linkblue}{RGB}{10,80,180}
+\hypersetup{colorlinks=true, urlcolor=linkblue}
+\pagestyle{empty}
+
+\titleformat{\section}
+  {\bfseries\normalsize\uppercase}
+  {}{0em}{}[\vspace{-6pt}\rule{\textwidth}{0.5pt}]
+\titlespacing*{\section}{0pt}{0pt}{0.5pt}
+
+\setlength{\parskip}{0pt}
+\setlength{\parindent}{0pt}
+
+\newcommand{\entry}[2]{%
+  \noindent
+  \begin{tabular*}{\textwidth}{@{}l@{\extracolsep{\fill}}r@{}}
+    \textbf{#1} & \small #2
+  \end{tabular*}}
+
+\newcommand{\subentry}[2]{%
+  \noindent
+  \begin{tabular*}{\textwidth}{@{}l@{\extracolsep{\fill}}r@{}}
+    \textit{\small #1} & \textit{\small #2}
+  \end{tabular*}}
+
+\newcommand{\projhead}[2]{%
+  \noindent
+  \begin{tabular*}{\textwidth}{@{}l@{\extracolsep{\fill}}r@{}}
+    \textbf{#1} & \small\color{linkblue}\href{#2}{GitHub}
+  \end{tabular*}}
+
+\newcommand{\projheadlive}[3]{%
+  \noindent
+  \begin{tabular*}{\textwidth}{@{}l@{\extracolsep{\fill}}r@{}}
+    \textbf{#1} & \small\color{linkblue}\href{#3}{Live}\,$|$\,\href{#2}{GitHub}
+  \end{tabular*}}
+
+\newcommand{\techstack}[1]{%
+  \noindent\textit{\small\color{black!70}#1}\par\vspace{0pt}}
+
+\newenvironment{projitems}{%
+  \begin{itemize}[leftmargin=1.1em, itemsep=0pt, topsep=0.5pt, parsep=0pt]
+    \small
+}{%
+  \end{itemize}}
+
+\newcommand{\skillrow}[2]{%
+  \noindent\small\hangindent=1.12in\hangafter=1
+  \textbf{\makebox[1.12in][l]{#1}}#2\par\vspace{0.5pt}}
+
+\begin{document}
+
+\begin{center}
+  {\huge\bfseries Adapa SriVatsav}\\[1pt]
+  \small\color{linkblue}
+  \href{tel:+919989916427}{+91-9989916427}\enspace$|$\enspace
+  \href{mailto:srivatsava47@gmail.com}{srivatsava47@gmail.com}\enspace$|$\enspace
+  \href{https://www.linkedin.com/in/adapa-srivatsav-7318b827a}{linkedin/adapa-srivatsav}\enspace$|$\enspace
+  \href{https://github.com/ASrivatsav27}{github/ASrivatsav27}
+\end{center}
+
+\vspace{0pt}
+
+\section{Education}
+
+\entry{Methodist College of Engineering \& Technology}{Hyderabad, India}\\[1pt]
+\subentry{B.E.\ in Computer Science and Engineering (AI \& ML)}{Sep 2023 -- Sep 2027}
+
+\vspace{0pt}
+\entry{St Paul's High School, Hyderabad}{Graduated 2023}\\[1pt]
+\subentry{High School \quad Grade: 9.8}{}
+
+\section{Experience}
+
+\entry{Rootlex Technologies --- Software Development Intern (MaterialFlow)}{June 2026 -- August 2026}
+\techstack{Next.js, Bun, Elysia, PostgreSQL, Prisma ORM, PWA}
+\begin{projitems}
+  \item Owned full-stack feature development on a production Next.js app --- built UI components and wired them to REST APIs backed by PostgreSQL/Prisma, shipping end-to-end from frontend to database.
+  \item Designed and integrated REST API endpoints using Elysia on Bun for order management workflows, consumed by both the web app and PWA clients.
+  \item Built voice-note order intake: captured audio via MediaRecorder API, transcribed server-side (Gemini/Whisper), and used AI to parse the transcript into structured order line items (items, quantities, retailer) as a draft routed for staff approval.
+  \item Built PDF order intake: sent PDF bytes directly to Gemini's multimodal API (no OCR or text-extraction step), letting the model read layout and tables natively to produce structured order data (items, quantities, retailer) as a draft routed for staff approval.
+  \item Evaluated Elasticsearch vs.\ Weaviate for hybrid semantic search using embedding models, selecting native RRF-based retrieval to solve mixed-intent search + recommendation routing.
+\end{projitems}
+
+\section{Projects}
+
+\projhead{beyondATS --- AI Job Matching \& Voice Screening}{https://github.com/ASrivatsav27/beyondATS}
+\techstack{Next.js 14, TypeScript, MongoDB Atlas, GPT-4o-mini, OpenRouter API, Retell AI SDK, Twilio}
+\begin{projitems}
+  \item Built a 4-stage AI hiring pipeline (resume parsing $\to$ hybrid skill matching $\to$ AI voice call $\to$ GPT-4o-mini evaluation) that cuts screening time to under 5 minutes; \textbf{3rd place at NYXORA MREM 2026 national hackathon}.
+  \item Designed a hybrid matching engine: 70\% semantic skill graph (40+ skill families with exact/fuzzy/transitive matching) + 30\% 8-dimensional embedding vectors with cosine similarity, and gradient-based adaptive weight learning (lr\,=\,0.03) driven by employer invite/reject feedback.
+  \item Integrated Retell AI + Twilio for real phone screening calls with dynamically generated questions per candidate resume; post-call transcript evaluated by GPT-4o-mini across 5 weighted dimensions (Technical Depth 30\%, Communication 25\%, Problem Solving 20\%, Culture Fit 15\%, Confidence 10\%).
+\end{projitems}
+
+\vspace{0pt}
+\projheadlive{AI Forge --- Multi-Agent Harness for AI App Generation with Docker Isolation}{https://github.com/ASrivatsav27/AI-Forge}{https://app.adapasrivatsav.in}
+\techstack{React, Bun, TypeScript, Express, Inngest, Docker, Socket.IO, PostgreSQL, Prisma, Better Auth, Anthropic SDK, AWS EC2}
+\begin{projitems}
+  \item Built a multi-agent harness (setup, triage, planning, file-generation and fix agents) that turns a prompt into a running app: files are generated in dependency-aware parallel batches, then the dev server is verified via port detection + HTTP probe, with auto-fix (install packages / regenerate file, up to 3 tries).
+  \item Orchestrated it with event-driven Inngest workflows (setup $\to$ coding hand-off); each command, file generation and verification is a memoized step, so retries resume rather than restart, with per-project concurrency limits and failure state saved to PostgreSQL.
+  \item Built a session-based runtime: per-project Docker container, \texttt{node-pty} session and Socket.IO room streaming agent and terminal output, rebuilt from the DB after restarts; Better Auth cookie sessions scope every API call per user.
+  \item Deployed with a multi-stage Docker build and Docker Compose on AWS EC2 (backend + self-hosted Inngest, shared workspace volume), frontend on Vercel, live previews on wildcard TLS subdomains, with cross-subdomain cookies and CORS allow-lists.
+\end{projitems}
+
+\vspace{0pt}
+\projhead{WebRTC P2P Video Call App}{https://github.com/ASrivatsav27/Peer-Link}
+\techstack{React, TypeScript, Vite, Node.js, Express, Socket.IO, WebRTC}
+\begin{projitems}
+  \item Implemented the full WebRTC handshake from scratch (createOffer $\to$ setLocalDescription $\to$ answer $\to$ setRemoteDescription $\to$ ICE candidate exchange) using Google STUN (\texttt{stun.l.google.com:19302}) for public IP discovery.
+  \item Used Socket.IO exclusively for SDP/ICE signaling so that all video and audio flows peer-to-peer with zero server relay once the P2P tunnel is established.
+\end{projitems}
+
+\vspace{0pt}
+\projhead{AI Voice Agent for Automated Phone Calls}{https://github.com/ASrivatsav27/Voice-Agent-for-Automated-Phone-Calls}
+\techstack{React, Node.js, Express, Prisma ORM, SQLite, Retell AI SDK}
+\begin{projitems}
+  \item Built a full-stack AI customer support platform that automates voice call interactions using Retell AI, with persistent conversation history tracking via Prisma ORM and a real-time call analytics dashboard; \textbf{1st place at HackNovate 2025 national hackathon}.
+\end{projitems}
+
+\section{Technical Skills}
+
+\skillrow{Languages}{JavaScript, TypeScript, SQL, HTML/CSS}
+
+\skillrow{Frontend}{React, Next.js 14, Tailwind CSS, shadcn/ui, Framer Motion, Monaco Editor, xterm.js, Vite}
+
+\skillrow{Backend}{Node.js, Express, Elysia, Bun, REST APIs, Socket.IO, WebRTC, Inngest, Event-Driven Design, Passport.js}
+
+\skillrow{Databases}{PostgreSQL, MongoDB Atlas, MySQL, SQLite, Redis}
+
+\skillrow{AI \& LLMs}{Agentic Workflows, Multi-Agent Systems, Tool Calling, Claude Opus, Qwen, GPT-4o-mini, Gemini, Anthropic SDK, Groq, OpenRouter, Retell AI, Prompt Engineering, Twilio}
+
+\skillrow{Auth \& Security}{Better Auth, Google/GitHub OAuth, JWT, httpOnly Cookies, Cross-Subdomain Cookies, Redis Blacklist}
+
+\skillrow{DevOps \& Tools}{Docker, Docker Compose, AWS EC2, Vercel, Nginx, Linux, Git, GitHub, CI/CD, Prisma ORM, Mongoose}
+
+
+
+\section{Achievements}
+
+\begin{itemize}[leftmargin=1.1em, itemsep=0.5pt, topsep=0.5pt]
+  \item \small\textbf{1st Place} --- National Hackathon, Google Developer Community \textbf{(HackNovate 2025)} --- AI Voice Agent
+  \item \small\textbf{3rd Place} --- National Hackathon, Google Developer Community \textbf{(NYXORA MREM 2026)} --- beyondATS
+\end{itemize}
+
+\end{document}

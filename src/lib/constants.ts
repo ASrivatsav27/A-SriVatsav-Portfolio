@@ -1,0 +1,88 @@
+export const profile = {
+  name: "Adapa SriVatsav",
+  role: "Software Developer",
+  tagline: "I build production-grade applications and AI-integrated workflows.",
+  location: "Hyderabad, India",
+  email: "srivatsava47@gmail.com",
+  phone: "+91-9989916427",
+  github: "https://github.com/ASrivatsav27",
+  linkedin: "https://www.linkedin.com/in/adapa-srivatsav-7318b827a",
+};
+
+export const techGroups = [
+  { category: "Languages", items: ["JavaScript", "TypeScript", "SQL", "HTML", "CSS", "Python"] },
+  { category: "Frontend", items: ["React", "Next.js", "Tailwind CSS", "shadcn/ui", "Framer Motion", "Monaco Editor", "xterm.js", "Vite"] },
+  { category: "Backend", items: ["Node.js", "Express", "Bun", "Elysia", "REST APIs", "Socket.IO", "WebRTC", "Inngest", "Event-driven architecture"] },
+  { category: "Databases", items: ["PostgreSQL", "MongoDB", "MySQL", "SQLite", "Redis"] },
+  { category: "AI & LLM", items: ["Claude", "GPT-4o-mini", "Qwen", "Gemini", "Anthropic SDK", "Groq", "OpenRouter", "Retell AI", "Agentic Workflows", "RAG", "Embeddings", "Tool Calling", "Prompt Engineering", "Twilio"] },
+  { category: "Infrastructure", items: ["Docker", "Docker Compose", "AWS EC2", "Vercel", "Nginx", "Linux", "Git", "GitHub", "CI/CD", "Prisma ORM", "Mongoose"] },
+];
+
+export const projects = [
+  {
+    id: "beyondats",
+    number: "01",
+    name: "beyondATS",
+    title: "AI Job Matching & Voice Screening",
+    description: "An AI-powered hiring platform that automates candidate screening through resume parsing, hybrid skill matching, phone interviews and structured evaluation.",
+    stack: ["Next.js 14", "TypeScript", "MongoDB Atlas", "GPT-4o-mini", "Retell AI", "Twilio"],
+    github: "https://github.com/ASrivatsav27/beyondATS",
+    live: undefined,
+    award: "3rd Place · NYXORA MREM 2026",
+    visual: "ats",
+    details: ["Four-stage AI hiring pipeline from resume parsing to evaluation", "40+ skill families with exact, fuzzy and transitive matching", "Retell AI and Twilio phone screening with GPT-4o-mini evaluation"],
+  },
+  {
+    id: "ai-forge",
+    number: "02",
+    name: "AI Forge",
+    title: "Multi-Agent Harness for AI App Generation",
+    description: "A developer tool that turns natural-language prompts into running applications using coordinated workflows and isolated Docker environments.",
+    stack: ["React", "Bun", "TypeScript", "Inngest", "Docker", "Socket.IO", "AWS EC2"],
+    github: "https://github.com/ASrivatsav27/AI-Forge",
+    live: "https://app.adapasrivatsav.in",
+    award: undefined,
+    visual: "forge",
+    details: ["Dependency-aware parallel file generation", "Per-project Docker runtime with live terminal streaming", "Automated dev-server verification and repair"],
+  },
+  {
+    id: "peer-link",
+    number: "03",
+    name: "WebRTC P2P Video Call App",
+    title: "Peer-to-peer video calling",
+    description: "A video calling application implementing WebRTC communication and signaling from scratch, with audio and video sent peer-to-peer after connection.",
+    stack: ["React", "TypeScript", "Vite", "Node.js", "Express", "Socket.IO", "WebRTC"],
+    github: "https://github.com/ASrivatsav27/Peer-Link",
+    live: undefined,
+    award: undefined,
+    visual: "webrtc",
+    details: ["Complete SDP offer and answer handshake", "ICE candidate exchange with Google STUN", "Socket.IO signaling"],
+  },
+  {
+    id: "voice-agent",
+    number: "04",
+    name: "AI Voice Agent for Automated Phone Calls",
+    title: "AI customer support and call analytics",
+    description: "A full-stack customer-support platform that automates phone interactions with persistent conversation history and real-time call analytics.",
+    stack: ["React", "Node.js", "Express", "Prisma ORM", "SQLite", "Retell AI SDK"],
+    github: "https://github.com/ASrivatsav27/Voice-Agent-for-Automated-Phone-Calls",
+    live: undefined,
+    award: "1st Place · HackNovate 2025",
+    visual: "voice",
+    details: ["Persistent conversation history", "Real-time call analytics dashboard", "Retell AI voice interactions"],
+  },
+];
+
+export const experience = {
+  company: "Rootlex Technologies",
+  role: "Software Development Intern — MaterialFlow",
+  period: "June 2026 – August 2026",
+  stack: ["Next.js", "Bun", "Elysia", "PostgreSQL", "Prisma ORM", "PWA"],
+  bullets: [
+    "Owned full-stack feature development on a production Next.js application, building UI components and connecting REST APIs backed by PostgreSQL and Prisma.",
+    "Designed and integrated REST API endpoints using Elysia on Bun for order management workflows consumed by web and PWA clients.",
+    "Built voice-note order intake using MediaRecorder API, Gemini and Whisper for transcription and structured order extraction.",
+    "Built multimodal PDF order intake using Gemini’s native PDF understanding capabilities.",
+    "Evaluated Elasticsearch and Weaviate for hybrid semantic search and recommendation routing.",
+  ],
+};
